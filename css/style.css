@@ -33,6 +33,7 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
 }
 
 .header-content {
@@ -47,8 +48,15 @@ body {
 
 .hero-header h1 {
     font-size: 3.5rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    font-style: italic;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    margin-bottom: 1rem;
 }
 
 /* 导航栏 */
@@ -86,56 +94,11 @@ body {
     color: var(--dark-color);
 }
 
-/* 著作页面样式 */
-.works-container {
-    max-width: 1000px;
+/* 主要内容区 */
+.container {
+    max-width: 1200px;
     margin: 2rem auto;
     padding: 0 1rem;
-}
-
-.work-item {
-    display: flex;
-    margin-bottom: 3rem;
-    border: 1px solid #d4a76a;
-    border-radius: 5px;
-    padding: 1.5rem;
-    background-color: #fffaf0;
-}
-
-.work-image {
-    width: 45%;
-    margin-right: 2rem;
-}
-
-.work-image img {
-    width: 100%;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-}
-
-.work-content {
-    width: 55%;
-}
-
-.work-title {
-    color: #8b4513;
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
-    border-bottom: 2px solid #d4a76a;
-    padding-bottom: 0.5rem;
-}
-
-.work-desc {
-    line-height: 1.8;
-    font-size: 1.1rem;
-    margin-bottom: 1rem;
-}
-
-.poem {
-    font-family: 'Noto Serif SC', serif;
-    font-size: 1.2rem;
-    line-height: 2;
-    margin: 1rem 0;
 }
 
 /* 页脚 */
@@ -151,14 +114,6 @@ footer {
 @media (max-width: 768px) {
     .hero-header h1 {
         font-size: 2.5rem;
-    }
-    
-    .work-item {
-        flex-direction: column;
-    }
-    
-    .work-image, .work-content {
-        width: 100%;
     }
     
     .main-nav ul {

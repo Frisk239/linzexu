@@ -13,20 +13,30 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css">
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            new Swiper('.swiper-container', {
+                loop: true,
+                autoplay: {
+                    delay: 3000,
+                    disableOnInteraction: false,
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+            });
+        });
+    </script>
 </head>
 <body>
     <header class="hero-header">
-        <div class="swiper-container">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide" style="background-image: url('image/humenxiaoyan.png')"></div>
-                <div class="swiper-slide" style="background-image: url('image/banshenxiang.png')"></div>
-                <div class="swiper-slide" style="background-image: url('image/jiangsuzhishui.png')"></div>
-            </div>
-            <div class="swiper-pagination"></div>
+        <div class="header-image">
+            <img src="image/banshenxiang.png" alt="林则徐半身像">
         </div>
         <div class="header-content">
             <h1 class="animate__animated animate__fadeInDown">林则徐纪念馆</h1>
-            <p class="subtitle animate__animated animate__fadeInUp"></p>
+            <p class="subtitle animate__animated animate__fadeInUp">民族英雄 廉政楷模</p>
         </div>
     </header>
 
