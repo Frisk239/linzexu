@@ -79,11 +79,11 @@ function addEventMarkers(map) {
             const zoom = map.getZoom();
             const size = Math.max(20, 30 * Math.pow(1.2, zoom - 5));
             const colors = {
-                'birth': '#D4AF37',
-                'jinshi': '#9A1F1A',
-                'huguang': '#9A1F1A',
-                'humen': '#9A1F1A',
-                'xinjiang': '#9A1F1A'
+                'birth': '#D4AF37',  // 金色-出生
+                'jinshi': '#2E8B57', // 绿色-科举
+                'huguang': '#4169E1', // 蓝色-湖广总督
+                'humen': '#9A1F1A',  // 红色-虎门销烟
+                'xinjiang': '#9932CC' // 紫色-贬官新疆
             };
             return L.divIcon({
                 html: `<i class="fas fa-${event.icon}" style="color:${colors[event.id]};font-size:${size}px;text-shadow:0 0 8px rgba(255,255,255,0.5);"></i>`,
