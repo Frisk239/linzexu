@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>林则徐人物生平</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <style>
+        #map-container {
+            height: 70vh;
+            width: 100%;
+            position: relative;
+        }
+        .event-popup {
+            padding: 1rem;
+            max-width: 300px;
+        }
+        .event-popup h3 {
+            color: var(--primary-color);
+            margin-top: 0;
+        }
+        .event-popup a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header class="hero-header">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide" style="background-image: url('image/humenxiaoyan.png')"></div>
+                <div class="swiper-slide" style="background-image: url('image/banshenxiang.png')"></div>
+                <div class="swiper-slide" style="background-image: url('image/jiangsuzhishui.png')"></div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+        <div class="header-content">
+            <h1 class="animate__animated animate__fadeInDown">林则徐人物生平</h1>
+            <p class="subtitle animate__animated animate__fadeInUp">探索民族英雄的人生轨迹</p>
+        </div>
+    </header>
+
+    <nav class="main-nav">
+        <ul>
+            <li><a href="index.html">首页</a></li>
+            <li><a href="bio.html" class="active">人物生平</a></li>
+            <li><a href="works.html">著作与思想</a></li>
+            <li><a href="legacy.html">后世影响</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <div id="map-container"></div>
+    </main>
+
+    <footer>
+        <p>© 2025 林则徐纪念馆 | 传承民族精神</p>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="js/map.js"></script>
+</body>
+</html>
