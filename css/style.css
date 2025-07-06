@@ -24,24 +24,15 @@ body {
     overflow: hidden;
 }
 
-.swiper-container {
+.header-image {
     width: 100%;
     height: 100%;
 }
 
-.swiper-slide {
-    background-size: cover;
-    background-position: center;
-}
-
-.swiper-slide::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
+.header-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .header-content {
@@ -58,25 +49,6 @@ body {
     font-size: 3.5rem;
     margin-bottom: 1rem;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-}
-
-.subtitle {
-    font-size: 1.8rem;
-    font-style: italic;
-    min-height: 2rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-}
-
-.swiper-pagination-bullet {
-    background: white;
-    opacity: 0.6;
-    width: 12px;
-    height: 12px;
-}
-
-.swiper-pagination-bullet-active {
-    background: var(--secondary-color);
-    opacity: 1;
 }
 
 /* 导航栏 */
@@ -114,68 +86,56 @@ body {
     color: var(--dark-color);
 }
 
-/* 主要内容区 */
-.container {
-    max-width: 1200px;
+/* 著作页面样式 */
+.works-container {
+    max-width: 1000px;
     margin: 2rem auto;
     padding: 0 1rem;
 }
 
-.intro-card {
-    background-color: white;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+.work-item {
+    display: flex;
     margin-bottom: 3rem;
-    border-left: 5px solid var(--accent-color);
+    border: 1px solid #d4a76a;
+    border-radius: 5px;
+    padding: 1.5rem;
+    background-color: #fffaf0;
 }
 
-.intro-card h2 {
-    color: var(--primary-color);
-    border-bottom: 2px solid var(--secondary-color);
+.work-image {
+    width: 45%;
+    margin-right: 2rem;
+}
+
+.work-image img {
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.work-content {
+    width: 55%;
+}
+
+.work-title {
+    color: #8b4513;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #d4a76a;
     padding-bottom: 0.5rem;
-    margin-top: 0;
 }
 
-/* 功绩卡片 */
-.achievement-card {
-    background-color: white;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 2rem;
-    border-left: 5px solid var(--primary-color);
+.work-desc {
+    line-height: 1.8;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
 }
 
-.achievement-card h2 {
-    color: var(--primary-color);
-    border-bottom: 2px solid var(--secondary-color);
-    padding-bottom: 0.5rem;
-    margin-top: 0;
-}
-
-.achievement-card p {
+.poem {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 1.2rem;
     line-height: 2;
-}
-
-/* 影响卡片 */
-.legacy-card {
-    background-color: white;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-left: 5px solid var(--secondary-color);
-}
-
-.legacy-card h2 {
-    color: var(--primary-color);
-    border-bottom: 2px solid var(--secondary-color);
-    padding-bottom: 0.5rem;
-    margin-top: 0;
-}
-
-.legacy-card p {
-    line-height: 2;
+    margin: 1rem 0;
 }
 
 /* 页脚 */
@@ -193,13 +153,16 @@ footer {
         font-size: 2.5rem;
     }
     
-    .subtitle {
-        font-size: 1.2rem;
+    .work-item {
+        flex-direction: column;
+    }
+    
+    .work-image, .work-content {
+        width: 100%;
     }
     
     .main-nav ul {
         flex-wrap: wrap;
-        justify-content: center;
     }
     
     .main-nav li {

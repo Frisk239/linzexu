@@ -1,14 +1,6 @@
 // 林则徐生平事件坐标配置
 const linzexuEvents = [
     {
-        id: 'birth',
-        name: '出生',
-        coords: [26.08, 119.30], // 福州
-        icon: 'birthday-cake',
-        routes: [],
-        description: '1785年出生于福建福州一个贫寒的教师家庭'
-    },
-    {
         id: 'jinshi',
         name: '进士及第',
         coords: [39.90, 116.40], // 北京
