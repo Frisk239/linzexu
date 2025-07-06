@@ -68,23 +68,27 @@ document.addEventListener('DOMContentLoaded', function() {
 // 添加事件标记
 function addEventMarkers(map) {
     linzexuEvents.forEach(event => {
-        // 创建自定义图标
+        // 创建自定义图标(移除背景圆)
         const icon = L.divIcon({
-            html: `<i class="fas fa-${event.icon}"></i>`,
+            html: `<i class="fas fa-${event.icon} fa-2x" style="color: #9e2b2b;"></i>`,
             className: 'custom-marker',
-            iconSize: [30, 30]
+            iconSize: [40, 40],
+            iconAnchor: [20, 40]
         });
 
         // 创建标记
         const marker = L.marker(event.coords, { icon }).addTo(map);
         
-        // 绑定弹出窗口
+        // 绑定美化后的弹出窗口
         marker.bindPopup(`
-            <div class="event-popup">
-                <h3>${event.name}</h3>
-                <p>${event.description}</p>
-                <a href="events/${event.id}.html">查看更多 →</a>
+            <div class="event-popup animate__animated animate__fadeIn">
+                <h3 class="popup-title">${event.name}</h3>
+                <p class="popup-desc">${event.description}</p>
+                <a href="events/${event.id}.html" class="popup-link">查看更多 <i class="fas fa-arrow-right"></i></a>
             </div>
-        `);
+        `, {
+            maxWidth: 350,
+            className: 'beautified-popup'
+        });
     });
 }
