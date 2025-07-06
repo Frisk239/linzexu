@@ -46,17 +46,23 @@ const linzexuEvents = [
 document.addEventListener('DOMContentLoaded', function() {
     const map = L.map('revolution-map').setView([35, 108], 5);
     
-    // 加载中国地图
+    // 加载浅色地图瓦片
+    const lightMap = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+        subdomains: 'abcd',
+        maxZoom: 19
+    }).addTo(map);
+
+    // 加载中国地图GeoJSON
     fetch('china.json')
         .then(response => response.json())
         .then(data => {
             L.geoJSON(data, {
                 style: {
-                    fillColor: '#f5f5e9',
-                    weight: 1,
-                    opacity: 1,
                     color: '#9e2b2b',
-                    fillOpacity: 0.7
+                    weight: 1.5,
+                    fillColor: '#f8f8f8',
+                    fillOpacity: 0.3
                 }
             }).addTo(map);
             
@@ -68,27 +74,48 @@ document.addEventListener('DOMContentLoaded', function() {
 // 添加事件标记
 function addEventMarkers(map) {
     linzexuEvents.forEach(event => {
-        // 创建自定义图标(移除背景圆)
-        const icon = L.divIcon({
-            html: `<i class="fas fa-${event.icon} fa-2x" style="color: #9e2b2b;"></i>`,
-            className: 'custom-marker',
-            iconSize: [40, 40],
-            iconAnchor: [20, 40]
-        });
-
-        // 创建标记
-        const marker = L.marker(event.coords, { icon }).addTo(map);
+        // 创建动态缩放图标
+        function createDynamicIcon() {
+            const zoom = map.getZoom();
+            const size = Math.max(20, 30 * Math.pow(1.2, zoom - 5));
+            const colors = {
+                'birth': '#D4AF37',
+                'jinshi': '#9A1F1A',
+                'huguang': '#9A1F1A',
+                'humen': '#9A1F1A',
+                'xinjiang': '#9A1F1A'
+            };
+            return L.divIcon({
+                html: `<i class="fas fa-${event.icon}" style="color:${colors[event.id]};font-size:${size}px;text-shadow:0 0 8px rgba(255,255,255,0.5);"></i>`,
+                className: 'custom-marker',
+                iconSize: [size, size]
+            });
+        }
         
-        // 绑定美化后的弹出窗口
-        marker.bindPopup(`
-            <div class="event-popup animate__animated animate__fadeIn">
-                <h3 class="popup-title">${event.name}</h3>
-                <p class="popup-desc">${event.description}</p>
-                <a href="events/${event.id}.html" class="popup-link">查看更多 <i class="fas fa-arrow-right"></i></a>
-            </div>
-        `, {
-            maxWidth: 350,
-            className: 'beautified-popup'
+        // 创建标记
+        const marker = L.marker(event.coords, { 
+            icon: createDynamicIcon()
+        }).addTo(map);
+        
+        // 地图缩放时更新图标大小
+        map.on('zoomend', function() {
+            marker.setIcon(createDynamicIcon());
+        });
+        
+        // 绑定弹出窗口
+        let popupContent = `
+            <div class="event-card">
+                <h3>${event.name}</h3>
+                <i class="fas fa-${event.icon}"></i>
+                <p class="event-description">${event.description}</p>
+                <button class="explore-btn" onclick="window.location.href='events/${event.id}.html'">
+                    点击探索
+                </button>
+            </div>`;
+            
+        marker.bindPopup(popupContent, {
+            className: 'beautified-popup',
+            maxWidth: 350
         });
     });
 }

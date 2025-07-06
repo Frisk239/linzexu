@@ -1,18 +1,49 @@
-/* 美化地图标记 */
-.custom-marker {
-    background: transparent !important;
-    border: none !important;
-    box-shadow: none !important;
-}
-
+/* 动态标记样式 */
 .custom-marker i {
-    text-shadow: 0 2px 5px rgba(0,0,0,0.3);
     transition: all 0.3s ease;
 }
 
-.custom-marker i:hover {
-    transform: scale(1.2);
-    filter: drop-shadow(0 3px 8px rgba(0,0,0,0.4));
+/* 弹出窗口卡片样式 */
+.event-card {
+    padding: 1rem;
+    text-align: center;
+    font-family: 'Noto Serif SC', serif;
+}
+
+.event-card h3 {
+    color: #9e2b2b;
+    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+}
+
+.event-card i {
+    font-size: 2rem;
+    color: #9e2b2b;
+    margin: 0.5rem 0;
+    display: block;
+}
+
+.event-description {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.explore-btn {
+    background: #9e2b2b;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.explore-btn:hover {
+    background: #7a1f1f;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
 
 /* 美化弹出窗口 */
